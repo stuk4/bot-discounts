@@ -319,7 +319,7 @@ if   __name__ == '__main__':
         'https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1'
     ]
     start = time.time()
-    for url in   man_category:
+    for url in  test_category:
         Bot().iniciar_bot(url)
     finish = time.time()
     print("TIEMPO: ------------------------------>",(finish - start)/60)
