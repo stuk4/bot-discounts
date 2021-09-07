@@ -27,7 +27,7 @@ class Bot():
         options.add_argument("--incognito")
         options.add_argument("--disable-gpu")
         # options.add_argument("-disable-software-rasterizer")
-        self.driver = webdriver.Chrome(ChromeDriverManager(log_level=0).install(),options=options)
+        self.driver = webdriver.Chrome(options=options)
         self.wait = WebDriverWait(self.driver,10)
         self.url = ''
         self.email_content = ''
