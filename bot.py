@@ -25,7 +25,7 @@ class Bot():
         options.add_argument('log-level=3')
         options.add_argument('window-size=1920x1080')
         options.add_argument("--incognito")
-        # options.add_argument("--disable-gpu")
+        options.add_argument("--disable-gpu")
         # options.add_argument("-disable-software-rasterizer")
         self.driver = webdriver.Chrome(options=options)
         self.wait = WebDriverWait(self.driver,10)
@@ -251,7 +251,7 @@ class Bot():
 
     
             
-            
+            print("TITULO",self.driver.title)
             if len(self.url) == 0:
                 self.url = url
             while True:
