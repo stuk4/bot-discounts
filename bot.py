@@ -27,7 +27,7 @@ class Bot():
         options.add_argument("--incognito")
         options.add_argument("--disable-gpu")
         # options.add_argument("-disable-software-rasterizer")
-        self.driver = webdriver.Chrome(options=options)
+        self.driver = webdriver.Chrome(ChromeDriverManager(log_level=0).install(),options=options)
         self.wait = WebDriverWait(self.driver,10)
         self.url = ''
         self.email_content = ''
@@ -251,7 +251,7 @@ class Bot():
 
     
             
-            print("TITULO",self.driver.title)
+            print("BTOWSER ",self.driver.title)
             if len(self.url) == 0:
                 self.url = url
             while True:
@@ -319,7 +319,7 @@ if   __name__ == '__main__':
         'https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1'
     ]
     start = time.time()
-    for url in  test_category:
+    for url in   man_category:
         Bot().iniciar_bot(url)
     finish = time.time()
     print("TIEMPO: ------------------------------>",(finish - start)/60)
