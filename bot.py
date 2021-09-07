@@ -14,21 +14,24 @@ import time
 from selenium.common.exceptions import NoSuchElementException,TimeoutException,ElementClickInterceptedException
 from  urllib3.exceptions import  MaxRetryError  
 import sys
+# from pyvirtualdisplay import Display
 # MODAL id kampyleInviteContainer
 # En caso no funcionar en  el sv https://stackoverflow.com/questions/45370018/selenium-working-with-chrome-but-not-headless-chrome?rq=1
 class Bot():
     def __init__(self, *args, **kwargs ):
+        # display = Display(visible=0, size=(1920, 1080))
+        # display.start()
         options = Options()
-      
+
         options.add_argument('--headless')
         options.add_argument('--ignore-certificate-errors-spki-list') 
         options.add_argument('log-level=3')
         options.add_argument('window-size=1920x1080')
-        options.add_argument("--incognito")
+        # options.add_argument("--incognito")
         options.add_argument("--disable-gpu")
         # options.add_argument("-disable-software-rasterizer")
         self.driver = webdriver.Chrome(options=options)
-        self.wait = WebDriverWait(self.driver,10)
+        self.wait = WebDriverWait(self.driver,20)
         self.url = ''
         self.email_content = ''
         self.exists_discounts = False
@@ -319,7 +322,7 @@ if   __name__ == '__main__':
         'https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1'
     ]
     start = time.time()
-    for url in   man_category:
+    for url in  test_category:
         Bot().iniciar_bot(url)
     finish = time.time()
     print("TIEMPO: ------------------------------>",(finish - start)/60)
