@@ -267,15 +267,19 @@ class Bot():
                     print("MAX PAGES: ",self.max_page_retry)
                     self.for_products_container(self.max_page_retry)
                     if self.try_count <= 0:
+                        self.driver.quit()
                         break
                 except Exception:
                     self.url = self.driver.current_url
                     self.try_count -= 1
+                    if self.try_count <= 0:
+                        self.driver.quit()
+                        break
                     continue
             
             if self.exists_discounts:
 
-                self.driver.quit()
+                
                 
                 # # end_timer = time.time()
                 # print("TIMER: ",end_timer - self.start_timer)
@@ -312,7 +316,7 @@ if   __name__ == '__main__':
             "category_name":"Mujer",
             "discount":65,
             "links":[
-                "https://www.falabella.com/falabella-cl/category/cat11670003/Especiales?isPLP=1",
+#"https://www.falabella.com/falabella-cl/category/cat11670003/Especiales?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat12440001/Zapatos?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat20002/Moda-Mujer?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat13140017/Ropa-Interior-y-Pijamas?isPLP=1",
