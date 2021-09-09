@@ -17,7 +17,7 @@ import sys
 # MODAL id kampyleInviteContainer
 # En caso no funcionar en  el sv https://stackoverflow.com/questions/45370018/selenium-working-with-chrome-but-not-headless-chrome?rq=1
 class Bot():
-    def __init__(self, *args, **kwargs ):
+    def __init__(self, *args, **kwargs ) -> None:
         options = Options()
       
         options.add_argument('--headless')
@@ -29,14 +29,15 @@ class Bot():
         # options.add_argument("-disable-software-rasterizer")
         self.driver = webdriver.Chrome(ChromeDriverManager(log_level=0).install(),options=options)
         self.wait = WebDriverWait(self.driver,10)
-        self.url = ''
-        self.email_content = ''
-        self.exists_discounts = False
-        self.exists_exception = False
-        self.discount = 70
-        self.max_page_retry  = 0
-        self.try_count = 3
-        self.counter_page = 0
+        self.url:str = ''
+        self.email_content:str = ''
+        self.exists_discounts:bool = False
+        self.exists_exception:bool = False
+        self.discount:int = 70
+        self.max_page_retry:int  = 0
+        self.try_count:int = 3
+        self.counter_page:int = 0
+        self.category_name:str = ""
 
     
         # Lo hago para tener el autocomplete del driver
@@ -59,7 +60,7 @@ class Bot():
         #The mail addresses and password
         sender_address = 'bbasti390@gmail.com'
         sender_pass = 'jdjtzycowlaawmgd'
-        receivers_address = ['bastididierr@gmail.com','anaisacvdo@gmail.com']
+        receivers_address = ['bastididierr@gmail.com']
         #Setup the MIME
         
         html = """      
@@ -80,7 +81,7 @@ class Bot():
                     </table>
                     
                     <p>Por favor, antes de comprar el producto que te interese te recomiendo
-                    ver si el precio no esta inflado, en paginas como https://www.knasta.cl o https://www.solotodo.cl
+                    ver si el precio no esta inflado, en paginas como <a href="https://www.knasta.cl">https://www.knasta.cl</a> o <a href="https://www.solotodo.cl ">https://www.solotodo.cl</a>
                     </p>
                 <p>Nos vemos!! :)</p>
                 </body>
@@ -120,9 +121,7 @@ class Bot():
                 object_product = {}
                 # Nombre del producto
                 # print("INDEX PRODUCTOS: ",index)
-        
-                # self.wait.until(EC.element_to_be_clickable((By.XPATH, "//b[starts-with(@id, 'testId-pod-displaySubTitle')]")))
-           
+
                 product_name_list = product.find_elements_by_xpath(".//b[starts-with(@id,'testId-pod-displaySubTitle')]")
 
                 # Obtener descuento del producto
@@ -141,13 +140,9 @@ class Bot():
         
                 # Obtengo el link del producto
                 # self.wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'layout_grid-view')]")))
-               
+            
                 link = product.find_elements_by_xpath(".//a[contains(@class, 'layout_grid-view')]")
-    
-                # self.wait.until(EC.element_to_be_clickable((By.XPATH, "//b[contains(@class, 'pod-title')]")))
                 brand_product = product.find_elements_by_xpath(".//b[contains(@class, 'pod-title')]")
-
-                # self.wait.until(EC.element_to_be_clickable((By.XPATH, "//span[starts-with(@class, 'copy10')]")))
                 product_actual_price = product.find_elements_by_xpath(".//span[starts-with(@class,'copy10')]")
                 # Defino mis variables, nombre,dcto y link
                 product_name = product_name_list[0].text
@@ -211,14 +206,7 @@ class Bot():
                     if self.try_count == 0:
                         break
                         
-                    print("INDEX --> ",i )
-                    # TODO: simular error en la pagina 2 para hacer un reeset y vuelva ejecutar el bot 
-                    # abajo esta para sabeer que tipo de excep es
-                    # TODO: luego borrar este if dejar e oslo el else
-                    # if i ==1:
-                    #     self.wait.until(EC.presence_of_all_elements_located((By.XPATH, "//div[@data-pod='catalyst-pod-----']")))
-                    #     container_product = self.driver.find_elements_by_xpath( "//div[@data-pod='catalyst-pod']")
-                    # else:
+                    # print("INDEX --> ",i )
                     self.wait.until(EC.presence_of_all_elements_located((By.XPATH, "//div[@data-pod='catalyst-pod']")))
                     container_product = self.driver.find_elements_by_xpath( "//div[@data-pod='catalyst-pod']")
 
@@ -245,39 +233,45 @@ class Bot():
             self.exists_exception = True
             print(f"ExecptionType: {exception_type}\n ARCHIVO: {filename}\n LINEA:{ line_number } \n ERROR: {exception_object}") 
 
-    def iniciar_bot(self,url): 
+    def iniciar_bot(self,url:str,discount:int,category_name): 
         try:
         
 
     
             
-            
+            self.discount = discount
+            self.category_name = category_name
             if len(self.url) == 0:
                 self.url = url
             while True:
-                print("TRY COUNT: ",self.try_count,"\nURL: ",self.url )
-                self.exists_exception = False
-                self.driver.get(self.url)
+                try:
 
-                time.sleep(3)
-                print("============== PASO GET ===============")
-                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                print("SALTO")
-            
-                if self.max_page_retry == 0:
-                    self.wait.until(EC.visibility_of_all_elements_located((By.XPATH, "//*[starts-with(@id, 'testId-pagination-bottom')]")))
-                    buttons_pagination = self.driver.find_elements_by_xpath("//*[starts-with(@id, 'testId-pagination-bottom')]")
-                    if type(buttons_pagination) == list:
-                        self.max_page_retry = buttons_pagination[1].text
-                    else:
-                        print("ERROR IF BUTTONS ")
-                        self.driver.quit()
+                    print("TRY COUNT: ",self.try_count,"\nURL: ",self.url )
+                    self.exists_exception = False
+                    self.driver.get(self.url)
 
-                print("MAX PAGES: ",self.max_page_retry)
-                self.for_products_container(self.max_page_retry)
-                if self.try_count <= 0:
-                    break
+                    time.sleep(3)
+                    print("============== PASO GET ===============")
+                    self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                    print("SALTO")
                 
+                    if self.max_page_retry == 0:
+                        self.wait.until(EC.visibility_of_all_elements_located((By.XPATH, "//*[starts-with(@id, 'testId-pagination-bottom')]")))
+                        buttons_pagination = self.driver.find_elements_by_xpath("//*[starts-with(@id, 'testId-pagination-bottom')]")
+                        if type(buttons_pagination) == list:
+                            self.max_page_retry = buttons_pagination[1].text
+                        else:
+                            print("ERROR IF BUTTONS ")
+                            self.driver.quit()
+
+                    print("MAX PAGES: ",self.max_page_retry)
+                    self.for_products_container(self.max_page_retry)
+                    if self.try_count <= 0:
+                        break
+                except Exception:
+                    self.url = self.driver.current_url
+                    self.try_count -= 1
+                    continue
             
             if self.exists_discounts:
 
@@ -287,9 +281,9 @@ class Bot():
                 # print("TIMER: ",end_timer - self.start_timer)
                 print("ENVIO DESCUENTOS")
                 category_name =self.url.split("/")[-1].split("?")[0].capitalize().replace("-"," ")
-                self.email_send(f"DESCUENTOS!! {category_name} ",self.email_content)
+                self.email_send(f"DESCUENTOS {self.category_name}!! {category_name} ",self.email_content)
             
-         
+
             
             print("TERMINO EL PROCESO")
         except Exception:
@@ -305,22 +299,100 @@ class Bot():
 
 
 if   __name__ == '__main__':
-    man_category = [
-        'https://www.falabella.com/falabella-cl/category/cat1720006/Zapatos?isPLP=1',
-        'https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1',
-        'https://www.falabella.com/falabella-cl/category/cat1320008/Moda-Hombre?isPLP=1',
-        'https://www.falabella.com/falabella-cl/category/cat6930003/Ropa-deportiva-hombre?isPLP=1',
-        'https://www.falabella.com/falabella-cl/category/cat2036/Fitness?isPLP=1',
-        'https://www.falabella.com/falabella-cl/category/cat6050003/Accesorios-Hombre?isPLP=1',
-        'https://www.falabella.com/falabella-cl/category/cat7660002/Belleza?facetSelected=true&f.product.attribute.G%C3%A9nero=Hombre&isPLP=1',
+    categories = [
+        {
+            "category_name":"Telefonos",
+            "discount":50,
+            "links":[
+                "https://www.falabella.com/falabella-cl/category/cat2018/Celulares-y-Telefonos?isPLP=1&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat70014/Accesorios-Celulares?isPLP=1&isPLP=1",
+            ]
+        },
+        {
+            "category_name":"Mujer",
+            "discount":65,
+            "links":[
+                "https://www.falabella.com/falabella-cl/category/cat11670003/Especiales?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat12440001/Zapatos?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat20002/Moda-Mujer?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat13140017/Ropa-Interior-y-Pijamas?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2017/Accesorios-Mujer?isPLP=1&isPLP=1",
+
+            ]
+        },
+        {
+            "category_name":"Hombre",
+            "discount":65,
+            "links":[
+                "https://www.falabella.com/falabella-cl/category/cat1720006/Zapatos?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat1320008/Moda-Hombre?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat6930003/Ropa-deportiva-hombre?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2036/Fitness?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat6050003/Accesorios-Hombre?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat7660002/Belleza?facetSelected=true&f.product.attribute.G%C3%A9nero=Hombre&isPLP=1"
+            ]
+        },
+        {
+            "category_name":"Tecnologia",
+            "discount":50,
+            "links":[
+                "https://www.falabella.com/falabella-cl/category/cat2005/Audio?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat7190053/Wearables?isPLP=1&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat40052/Computadores?isPLP=1&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat4850013/Computacion-gamer?isPLP=1&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2023/Videojuegos?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2038/Fotografia?isPLP=1&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat7190093/Smart-Home?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3117/Instrumentos-Musicales?isPLP=true&isPLP=1"
+
+            ]
+        },
+        {
+            "category_name":"Electro",
+            "discount":50,
+            "links":[       
+                "https://www.falabella.com/falabella-cl/category/cat2034/Electrodomesticos-Cocina?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat7190001/Aspirado-y-Limpieza?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3205/Refrigeradores?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3065/Cocina?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3136/Lavado?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat8540010/Maquinas-de-Coser?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat19110021/Equipamiento-Industrial?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat7170003/Calefaccion?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2025/Tecnologia-para-la-Belleza?isPLP=1&isPLP=1",
+            ]
+        },
+        {
+            "category_name":"Muebles",
+            "discount":45,
+            "links":[       
+                "https://www.falabella.com/falabella-cl/category/cat1008/Muebles-y-Organizacion?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2058/Maleteria-y-viajes?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3180022/Muebles-Infantiles?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat5870049/Muebles-de-Dormitorio?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2046/Oficina-y-escritorio?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/CATG10139/Organizacion?isPLP=1",
+
+            ]
+        }
+    ]
+
+
+    categories_exclude = [
+        {
+            "category_name":"TV"
+        }
     ]
     test_category = [
-        'https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior-y-pijamas?isPLP=1',
-        'https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1'
+        'https://www.falabella.com/falabella-cl/category/cat2018/Celulares-y-Telefonos?isPLP=1&isPLP=1'
     ]
+    print(type(categories[0]))
     start = time.time()
-    for url in   man_category:
-        Bot().iniciar_bot(url)
+    for category  in  categories:
+        print("Category:",category["category_name"])
+        for url in category["links"]:
+            Bot().iniciar_bot(url,category['discount'],category["category_name"])
     finish = time.time()
     print("TIEMPO: ------------------------------>",(finish - start)/60)
 
