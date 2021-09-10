@@ -25,6 +25,8 @@ class Bot():
         options.add_argument('log-level=3')
         options.add_argument('window-size=1920x1080')
         options.add_argument("--incognito")
+        prefs = {"profile.managed_default_content_settings.images": 2}
+        options.add_experimental_option("prefs", prefs)
         # options.add_argument("--disable-gpu")
         # options.add_argument("-disable-software-rasterizer")
         self.driver = webdriver.Chrome(ChromeDriverManager(log_level=0).install(),options=options)
@@ -58,9 +60,31 @@ class Bot():
         return True
     def email_send(self,subject,content):
         #The mail addresses and password
-        sender_address = 'bbasti390@gmail.com'
-        sender_pass = 'jdjtzycowlaawmgd'
-        receivers_address = ['bastididierr@gmail.com']
+        sender_address = 'cheap404price@gmail.com'
+        sender_pass = 'tnawxolbwtzdivqk'
+        receivers_address = [
+            'bastididierr@gmail.com',
+            'fabianastudillo789@gmail.com',
+            'angelacastillolema@hotmail.com',
+            'melissa.barrera.moral@gmail.com',
+            'daniela.coliqueo@gmail.com',
+            'jpeyran@gmail.com',
+            'bruceproxd@gmail.com',
+            'my_rousse@hotmail.com',
+            'barbara.bustos.cm@gmail.com',
+            'camilaev123@gmail.com',
+            'Jochuamora42@gmail.com',
+            'mariapaz_ortega@hotmail.com',
+            'jheresi88@gmail.com',
+            'sepulveda_100@hotmail.com',
+            'retanal170394@gmail.com',
+            'retamal170394@gmail.com',
+            'fabiancsm12@gmail.com',
+            'catituhola@gmail.com',
+            'ramverconsultores@gmail.com',
+            'alan_broo@hotmail.com',
+            'lissygarridom@gmail.com'
+            ]
         #Setup the MIME
         
         html = """      
@@ -80,8 +104,13 @@ class Bot():
         
                     </table>
                     
-                    <p>Por favor, antes de comprar el producto que te interese te recomiendo
+                    <p>Por favor marca este email como importante y antes de comprar el producto que te interese te recomiendo
                     ver si el precio no esta inflado, en paginas como <a href="https://www.knasta.cl">https://www.knasta.cl</a> o <a href="https://www.solotodo.cl ">https://www.solotodo.cl</a>
+                    </p>
+                     <p>
+                     <b>Esta es una fase de pruebas lo más probable es que te llegen correos durante el dia
+                     de la misma categoria dos veces o más, si tienes dudas llena este <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeLA1_RvCLt3ReiY0uR8zANu__-dRnH6TJhBexwBpRC4KeLg/viewform?usp=sf_link">Google Forms</a>
+                      </b
                     </p>
                 <p>Nos vemos!! :)</p>
                 </body>
@@ -91,7 +120,7 @@ class Bot():
         message['From'] = sender_address
         message['Cco'] = ", ".join(receivers_address)
 
-        datetime_hour_for_now =  datetime.timedelta(hours=4)
+        datetime_hour_for_now =  datetime.timedelta(hours=0)
         date_now = "{:%d-%m-%Y %H:%M:%S}".format(datetime.datetime.now() - datetime_hour_for_now )
         subject_with_date = "{} {}".format(subject,date_now)
         message['Subject'] = subject_with_date
@@ -159,26 +188,25 @@ class Bot():
 
                 if dcto_bag >= self.discount:
                     self.exists_discounts = True
+                    # self.email_content+= """ <tr>
+                    #                             <td  style="border:.5px solid black">{}</td>
+                    #                             <td  style="border:.5px solid black">{}</td>
+                    #                             <td  style="border:.5px solid black"><a href={}>Link</a></td>
+                    #                             <td  style="border:.5px solid black">{}</td>
+                    #                             <td  style="border:.5px solid black">{}%</td>
+                    #                         </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
                     self.email_content+= """ <tr>
-                                                <td  style="border:.5px solid black">{}</td>
-                                                <td  style="border:.5px solid black">{}</td>
-                                                <td  style="border:.5px solid black"><a href={}>Link</a</td>
-                                                <td  style="border:.5px solid black">{}</td>
-                                                <td  style="border:.5px solid black">{}%</td>
-                                            </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
-            # TODO: VER QUE HACE AL MOMENTO DE ENCONTRAR UN ERROR SI SIGUE NORMAN SIN EL BREAK
+                                        <td  style="border:.5px solid black">{}</td>
+                                        <td  style="border:.5px solid black">{}</td>
+                                        <td  style="border:.5px solid black">{}</td>
+                                        <td  style="border:.5px solid black">{}</td>
+                                        <td  style="border:.5px solid black">{}%</td>
+                                    </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
+          
         
             print("FINALIZO SCAN")
         
-            
-                # object_product = {
-                #     'name':product_name,
-                #     'dcto':dcto_bag,
-                #     'link':link_ref,
-                #     'brand':brand,
-                #     'price':price,
-                # }
-                # list_product.append(object_product)
+
             
                     
             
@@ -314,10 +342,9 @@ if   __name__ == '__main__':
         },
         {
             "category_name":"Mujer",
-            "discount":65,
+            "discount":60,
             "links":[
 #"https://www.falabella.com/falabella-cl/category/cat11670003/Especiales?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat12440001/Zapatos?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat20002/Moda-Mujer?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat13140017/Ropa-Interior-y-Pijamas?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat2017/Accesorios-Mujer?isPLP=1&isPLP=1",
@@ -326,15 +353,24 @@ if   __name__ == '__main__':
         },
         {
             "category_name":"Hombre",
-            "discount":65,
+            "discount":60,
             "links":[
-                "https://www.falabella.com/falabella-cl/category/cat1720006/Zapatos?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat1320008/Moda-Hombre?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat6930003/Ropa-deportiva-hombre?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat2036/Fitness?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat6050003/Accesorios-Hombre?isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat7660002/Belleza?facetSelected=true&f.product.attribute.G%C3%A9nero=Hombre&isPLP=1"
+            ]
+        }
+        ,
+        {
+            "category_name":"Zapatos Mujer-Hombre",
+            "discount":60,
+            "links":[
+                "https://www.falabella.com/falabella-cl/category/cat12440001/Zapatos?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat1720006/Zapatos?isPLP=1&isPLP=1",
+                "https://www.falabella.com/falabella-cl/collection/Ver-Todo-Zapatos-Ninos?isPLP=1&isPLP=1",
             ]
         },
         {
@@ -379,6 +415,25 @@ if   __name__ == '__main__':
                 "https://www.falabella.com/falabella-cl/category/CATG10139/Organizacion?isPLP=1",
 
             ]
+        },
+        {
+            "category_name":"Dormitorio",
+            "discount":45,
+            "links":[       
+                "https://www.falabella.com/falabella-cl/category/cat2073/Ropa-de-Cama?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3180019/Dormitorio-Infantil?isPLP=1",
+                "https://www.falabella.com/falabella-cl/collection/complementos-cama?isPLP=1",
+               
+            ]
+        },
+        {
+            "category_name":"Dormitorio",
+            "discount":45,
+            "links":[       
+                "https://www.falabella.com/falabella-cl/category/cat2073/Ropa-de-Cama?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3180019/Dormitorio-Infantil?isPLP=1",
+                "https://www.falabella.com/falabella-cl/collection/complementos-cama?isPLP=1",
+            ]
         }
     ]
 
@@ -389,7 +444,9 @@ if   __name__ == '__main__':
         }
     ]
     test_category = [
-        'https://www.falabella.com/falabella-cl/category/cat2018/Celulares-y-Telefonos?isPLP=1&isPLP=1'
+         "https://www.falabella.com/falabella-cl/category/cat13720010/Camas?isPLP=1",
+        #   "https://www.falabella.com/falabella-cl/category/cat10546441/Combos-de-Dormitorio?isPLP=1"
+      
     ]
     print(type(categories[0]))
     start = time.time()
