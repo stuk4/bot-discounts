@@ -188,20 +188,20 @@ class Bot():
 
                 if dcto_bag >= self.discount:
                     self.exists_discounts = True
-                    # self.email_content+= """ <tr>
-                    #                             <td  style="border:.5px solid black">{}</td>
-                    #                             <td  style="border:.5px solid black">{}</td>
-                    #                             <td  style="border:.5px solid black"><a href={}>Link</a></td>
-                    #                             <td  style="border:.5px solid black">{}</td>
-                    #                             <td  style="border:.5px solid black">{}%</td>
-                    #                         </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
                     self.email_content+= """ <tr>
-                                        <td  style="border:.5px solid black">{}</td>
-                                        <td  style="border:.5px solid black">{}</td>
-                                        <td  style="border:.5px solid black">{}</td>
-                                        <td  style="border:.5px solid black">{}</td>
-                                        <td  style="border:.5px solid black">{}%</td>
-                                    </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
+                                                <td  style="border:.5px solid black">{}</td>
+                                                <td  style="border:.5px solid black">{}</td>
+                                                <td  style="border:.5px solid black"><a href={}>Link</a></td>
+                                                <td  style="border:.5px solid black">{}</td>
+                                                <td  style="border:.5px solid black">{}%</td>
+                                            </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
+                    # self.email_content+= """ <tr>
+                    #                     <td  style="border:.5px solid black">{}</td>
+                    #                     <td  style="border:.5px solid black">{}</td>
+                    #                     <td  style="border:.5px solid black">{}</td>
+                    #                     <td  style="border:.5px solid black">{}</td>
+                    #                     <td  style="border:.5px solid black">{}%</td>
+                    #                 </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
           
         
             print("FINALIZO SCAN")
