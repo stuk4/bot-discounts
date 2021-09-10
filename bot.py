@@ -102,13 +102,14 @@ class Bot():
             'gotita18@gmail.com',
             'manue.co.es@gmail.com',
             'jaja_viera@hotmail.com',
-            'm.esquivel.tapia@gmail.con',
+            'm.esquivel.tapia@gmail.com',
             'nicolas.o.mendez@gmail.com',
             'michelpalomino90@gmail.com',
             'nikor658@gmail.com',
             'krolak76@gmail.com',
             'conzuelovalentona@hotmail.com',
-            'jesus.enrique99520@gmail.com'
+            'jesus.enrique99520@gmail.com',
+            'reneemilio2002@gmail.com',
             ]
         #Setup the MIME
         
@@ -480,6 +481,6 @@ if   __name__ == '__main__':
         for url in category["links"]:
             Bot().iniciar_bot(url,category['discount'],category["category_name"])
     finish = time.time()
-    print("TIEMPO: ------------------------------>",(finish - start)/60)
+    print(f"TIEMPO {datetime.datetime.now()} : ------------------------------>",(finish - start)/60)
 
         
