@@ -77,13 +77,45 @@ class Bot():
             'mariapaz_ortega@hotmail.com',
             'jheresi88@gmail.com',
             'sepulveda_100@hotmail.com',
-            'retanal170394@gmail.com',
             'retamal170394@gmail.com',
             'fabiancsm12@gmail.com',
             'catituhola@gmail.com',
             'ramverconsultores@gmail.com',
             'alan_broo@hotmail.com',
-            'lissygarridom@gmail.com'
+            'lissygarridom@gmail.com',
+            'rosa.salin@gmail.com',
+            'isap2121@gmail.com',
+            'autos24@gmail.com',
+            'fe.lopezm865@gmail.com',
+            'sebian1920@hotmail.com',
+            'ptroncoso@camanchaca.cl',
+            'nsalazar041@gmail.com',
+            'nicolevegaarancibia@gmail.com',
+            'nicozagal2@gmail.com',
+            'carlos_hinostroza@hotmail.cl',
+            'Issa.castillo.a@gmail.com',
+            'zarzuri50@gmail.com',
+            'felipeantonios637@gmail.com',
+            'mandgoba@hotmail.com',
+            'nicolas.gota454@gmail.com',
+            'vszurit@gmail.com',
+            'gotita18@gmail.com',
+            'manue.co.es@gmail.com',
+            'jaja_viera@hotmail.com',
+            'm.esquivel.tapia@gmail.com',
+            'nicolas.o.mendez@gmail.com',
+            'michelpalomino90@gmail.com',
+            'nikor658@gmail.com',
+            'krolak76@gmail.com',
+            'jesus.enrique99520@gmail.com',
+            'reneemilio2002@gmail.com',
+            'enlaces.lir@gmail.com',
+            'basthi.log@gmail.com',
+            'hbritocm@gmail.com',
+            'wually10@gmail.com',
+            'ivandariodiazramos@gmail.com',
+            'r.diiaz@gmail.com',
+            'aldom.cl@gmail.com',
             ]
         #Setup the MIME
         
@@ -202,7 +234,6 @@ class Bot():
                     #                     <td  style="border:.5px solid black">{}</td>
                     #                     <td  style="border:.5px solid black">{}%</td>
                     #                 </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
-          
         
             print("FINALIZO SCAN")
         
@@ -427,12 +458,56 @@ if   __name__ == '__main__':
             ]
         },
         {
-            "category_name":"Dormitorio",
+            "category_name":"Cocina y baño",
             "discount":45,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/cat2073/Ropa-de-Cama?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3180019/Dormitorio-Infantil?isPLP=1",
-                "https://www.falabella.com/falabella-cl/collection/complementos-cama?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/CATG10000/Cocina?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2034/Electrodomesticos-Cocina?isLanding=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2060/Menaje-Cocina?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2061/Menaje-Comedor?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat3205/Refrigeradores?isPLP=true&isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/CATG10001/Bano?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2006/Menaje-Bano?isPLP=1",
+            ]
+        }
+        ,
+        {
+            "category_name":"Decoracion",
+            "discount":45,
+            "links":[       
+                "https://www.falabella.com/falabella-cl/category/cat2026/Decoracion-e-iluminacion?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2002/Alfombras-y-cubrepisos?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat5540010/Cortinas-y-rollers?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/CATG10081/Iluminacion-Interior?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat14250003/Iluminacion-Exterior?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat14009890/Piso-Diseno?isPLP=1",
+            ]
+        }
+        ,
+        {
+            "category_name":"Jardin",
+            "discount":45,
+            "links":[       
+                "https://www.falabella.com/falabella-cl/category/cat2079/Parrillas-y-accesorios?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/CATG10504/Jardin?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat690277/Juegos-de-exterior?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat14250003/Iluminacion-Exterior?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat18320015/Herramientas-y-maquinaria-de-jardin?isPLP=1",
+            ]
+        }
+        ,
+        {
+            "category_name":"Deportes",
+            "discount":45,
+            "links":[       
+                "https://www.falabella.com/falabella-cl/category/cat6930168/Ropa-deportiva-mujer?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat6930003/Ropa-deportiva-hombre?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat18260007/Electromovilidad?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat70007/Bicicletas?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat2036/Fitness?isPLP=1",
+                "https://www.falabella.com/falabella-cl/collection/Accesorios-Deportivos?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat7280239/Disciplinas?isPLP=1",
+                "https://www.falabella.com/falabella-cl/category/cat6930448/Camping?isPLP=1",          
             ]
         }
     ]
@@ -446,6 +521,7 @@ if   __name__ == '__main__':
     test_category = [
          "https://www.falabella.com/falabella-cl/category/cat13720010/Camas?isPLP=1",
         #   "https://www.falabella.com/falabella-cl/category/cat10546441/Combos-de-Dormitorio?isPLP=1"
+        # "https://www.falabella.com/falabella-cl/category/CATG10503/Terrazas?isPLP=1"
       
     ]
     print(type(categories[0]))
