@@ -154,7 +154,7 @@ class Bot():
 
         datetime_hour_for_now =  datetime.timedelta(hours=0)
         date_now = "{:%d-%m-%Y %H:%M:%S}".format(datetime.datetime.now() - datetime_hour_for_now )
-        subject_with_date = "{} {}".format(subject,date_now)
+        subject_with_date = "{} ".format(subject)
         message['Subject'] = subject_with_date
 
         #Create SMTP session for sending the mail
@@ -365,7 +365,7 @@ if   __name__ == '__main__':
     categories = [
         {
             "category_name":"Telefonos",
-            "discount":50,
+            "discount":60,
             "links":[
                 "https://www.falabella.com/falabella-cl/category/cat2018/Celulares-y-Telefonos?isPLP=1&isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat70014/Accesorios-Celulares?isPLP=1&isPLP=1",
