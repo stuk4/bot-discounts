@@ -141,7 +141,7 @@ class Bot():
                     </p>
                      <p>
                      <b>Esta es una fase de pruebas lo más probable es que te llegen correos durante el dia
-                     de la misma categoria dos veces o más, si tienes dudas llena este <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeLA1_RvCLt3ReiY0uR8zANu__-dRnH6TJhBexwBpRC4KeLg/viewform?usp=sf_link">Google Forms</a>
+                     de la misma categoria dos veces o más, si tienes dudas llena este <a href="https://docs.google.com/forms/d/e/1FAIpQLSdn5UJGUgoM7niOAnKjIPz8hA0J1GfS-ruC722imQNTTR8WvQ/viewform?usp=sf_link">Google Forms</a>
                       </b
                     </p>
                 <p>Nos vemos!! :)</p>
@@ -531,6 +531,6 @@ if   __name__ == '__main__':
         for url in category["links"]:
             Bot().iniciar_bot(url,category['discount'],category["category_name"])
     finish = time.time()
-    print("TIEMPO: ------------------------------>",(finish - start)/60)
+    print(f"TIEMPO {datetime.datetime.now()} : ------------------------------>",(finish - start)/60)
 
         
