@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import datetime
 def every_n(lst, n):
     """Yield successive n-sized chunks from lst."""
  
@@ -101,12 +102,15 @@ def email_send(subject,content):
         session = smtplib.SMTP('smtp.gmail.com', 587) #use gmail with port
         session.starttls() #enable security
         session.login(sender_address, sender_pass) #login with mail_id and password
+        
+        datetime_hour_for_now =  datetime.timedelta(hours=4)
+        date_now = "{:%d-%m-%Y %H:%M:%S}".format(datetime.datetime.now() - datetime_hour_for_now )
+        subject = "{} {}".format(subject,date_now)
 
         for email_list in list(every_n(receivers_address,20)):
             message = MIMEMultipart( "alternative", None, [ MIMEText(html,'html')])
             message['From'] = sender_address
             message['Cco'] = ", ".join(email_list)
-            subject = "{} ".format(subject)
             message['Subject'] = subject
             text = message.as_string()
             session.sendmail(sender_address, receivers_address, text)
