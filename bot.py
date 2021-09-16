@@ -259,7 +259,7 @@ if   __name__ == '__main__':
     categories = [
         {
             "category_name":"Telefonos",
-            "discount":60,
+            "discount":50,
             "links":[
                 "https://www.falabella.com/falabella-cl/category/cat2018/Celulares-y-Telefonos?isPLP=1&isPLP=1",
                 "https://www.falabella.com/falabella-cl/category/cat70014/Accesorios-Celulares?isPLP=1&isPLP=1",

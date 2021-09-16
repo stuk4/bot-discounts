@@ -12,6 +12,7 @@ def email_send(subject,content):
         sender_address = 'cheap404price@gmail.com'
         sender_pass = 'tnawxolbwtzdivqk'
         receivers_address = [
+
             'fabianastudillo789@gmail.com',
             'angelacastillolema@hotmail.com',
             'melissa.barrera.moral@gmail.com',
@@ -34,6 +35,8 @@ def email_send(subject,content):
             'rosa.salin@gmail.com',
             'isap2121@gmail.com',
             'autos24@gmail.com',
+
+
             'fe.lopezm865@gmail.com',
             'sebian1920@hotmail.com',
             'ptroncoso@camanchaca.cl',
@@ -71,7 +74,7 @@ def email_send(subject,content):
         html = """      
                 <html>
                 <body>
-                    <h1>Tu descuentos :) </h1>
+                    <h1>Prueba ref:06 ) </h1>
                     <table style="width:100%,border:.5px solid black">
                         <tr>
                             <th style="border:.5px solid black">MARCA</th>
@@ -107,14 +110,19 @@ def email_send(subject,content):
         date_now = "{:%d-%m-%Y %H:%M:%S}".format(datetime.datetime.now() - datetime_hour_for_now )
         subject = "{} {}".format(subject,date_now)
 
+        
         for email_list in list(every_n(receivers_address,20)):
             message = MIMEMultipart( "alternative", None, [ MIMEText(html,'html')])
             message['From'] = sender_address
-            message['Cco'] = ", ".join(email_list)
             message['Subject'] = subject
+            message['Cco'] = ", ".join(email_list)
             text = message.as_string()
+            
+            print("====================================")
             session.sendmail(sender_address, receivers_address, text)
-
+            break
+        
+        
 
         session.quit()
         print('Correo enviado')
