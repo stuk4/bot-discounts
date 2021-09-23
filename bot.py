@@ -117,7 +117,7 @@ class Bot():
                     self.email_content+= """ <tr>
                                                 <td  style="border:.5px solid black">{}</td>
                                                 <td  style="border:.5px solid black">{}</td>
-                                                <td  style="border:.5px solid black"><a href={}>Link</a></td>
+                                                <td  style="border:.5px solid black">{}</td>
                                                 <td  style="border:.5px solid black">{}</td>
                                                 <td  style="border:.5px solid black">{}%</td>
                                             </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
