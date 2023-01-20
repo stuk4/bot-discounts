@@ -121,13 +121,7 @@ class Bot():
                                                 <td  style="border:.5px solid black">{}</td>
                                                 <td  style="border:.5px solid black">{}%</td>
                                             </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
-                    # self.email_content+= """ <tr>
-                    #                     <td  style="border:.5px solid black">{}</td>
-                    #                     <td  style="border:.5px solid black">{}</td>
-                    #                     <td  style="border:.5px solid black">{}</td>
-                    #                     <td  style="border:.5px solid black">{}</td>
-                    #                     <td  style="border:.5px solid black">{}%</td>
-                    #                 </tr>""".format(brand,product_name,link_ref,price,dcto_bag)
+
         
             print("FINALIZO SCAN")
         
@@ -261,18 +255,14 @@ if   __name__ == '__main__':
             "category_name":"Telefonos",
             "discount":50,
             "links":[
-                "https://www.falabella.com/falabella-cl/category/cat2018/Celulares-y-Telefonos?isPLP=1&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat70014/Accesorios-Celulares?isPLP=1&isPLP=1",
+              
             ]
         },
         {
             "category_name":"Mujer",
             "discount":60,
             "links":[
-#"https://www.falabella.com/falabella-cl/category/cat11670003/Especiales?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat20002/Moda-Mujer?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat13140017/Ropa-Interior-y-Pijamas?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2017/Accesorios-Mujer?isPLP=1&isPLP=1",
+
 
             ]
         },
@@ -280,12 +270,7 @@ if   __name__ == '__main__':
             "category_name":"Hombre",
             "discount":60,
             "links":[
-                "https://www.falabella.com/falabella-cl/category/cat5260002/Ropa-interior?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat1320008/Moda-Hombre?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat6930003/Ropa-deportiva-hombre?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2036/Fitness?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat6050003/Accesorios-Hombre?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat7660002/Belleza?facetSelected=true&f.product.attribute.G%C3%A9nero=Hombre&isPLP=1"
+
             ]
         }
         ,
@@ -293,23 +278,14 @@ if   __name__ == '__main__':
             "category_name":"Zapatos Mujer-Hombre",
             "discount":60,
             "links":[
-                "https://www.falabella.com/falabella-cl/category/cat12440001/Zapatos?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat1720006/Zapatos?isPLP=1&isPLP=1",
-                "https://www.falabella.com/falabella-cl/collection/Ver-Todo-Zapatos-Ninos?isPLP=1&isPLP=1",
+
             ]
         },
         {
             "category_name":"Tecnologia",
             "discount":50,
             "links":[
-                "https://www.falabella.com/falabella-cl/category/cat2005/Audio?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat7190053/Wearables?isPLP=1&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat40052/Computadores?isPLP=1&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat4850013/Computacion-gamer?isPLP=1&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2023/Videojuegos?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2038/Fotografia?isPLP=1&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat7190093/Smart-Home?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3117/Instrumentos-Musicales?isPLP=true&isPLP=1"
+
 
             ]
         },
@@ -317,27 +293,14 @@ if   __name__ == '__main__':
             "category_name":"Electro",
             "discount":50,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/cat2034/Electrodomesticos-Cocina?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat7190001/Aspirado-y-Limpieza?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3205/Refrigeradores?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3065/Cocina?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3136/Lavado?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat8540010/Maquinas-de-Coser?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat19110021/Equipamiento-Industrial?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat7170003/Calefaccion?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2025/Tecnologia-para-la-Belleza?isPLP=1&isPLP=1",
+
             ]
         },
         {
             "category_name":"Muebles",
             "discount":45,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/cat1008/Muebles-y-Organizacion?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2058/Maleteria-y-viajes?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3180022/Muebles-Infantiles?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat5870049/Muebles-de-Dormitorio?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2046/Oficina-y-escritorio?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/CATG10139/Organizacion?isPLP=1",
+
 
             ]
         },
@@ -345,9 +308,7 @@ if   __name__ == '__main__':
             "category_name":"Dormitorio",
             "discount":45,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/cat2073/Ropa-de-Cama?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3180019/Dormitorio-Infantil?isPLP=1",
-                "https://www.falabella.com/falabella-cl/collection/complementos-cama?isPLP=1",
+
                
             ]
         },
@@ -355,13 +316,7 @@ if   __name__ == '__main__':
             "category_name":"Cocina y baño",
             "discount":45,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/CATG10000/Cocina?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2034/Electrodomesticos-Cocina?isLanding=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2060/Menaje-Cocina?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2061/Menaje-Comedor?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat3205/Refrigeradores?isPLP=true&isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/CATG10001/Bano?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2006/Menaje-Bano?isPLP=1",
+
             ]
         }
         ,
@@ -369,12 +324,7 @@ if   __name__ == '__main__':
             "category_name":"Decoracion",
             "discount":45,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/cat2026/Decoracion-e-iluminacion?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2002/Alfombras-y-cubrepisos?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat5540010/Cortinas-y-rollers?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/CATG10081/Iluminacion-Interior?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat14250003/Iluminacion-Exterior?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat14009890/Piso-Diseno?isPLP=1",
+
             ]
         }
         ,
@@ -382,11 +332,7 @@ if   __name__ == '__main__':
             "category_name":"Jardin",
             "discount":45,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/cat2079/Parrillas-y-accesorios?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/CATG10504/Jardin?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat690277/Juegos-de-exterior?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat14250003/Iluminacion-Exterior?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat18320015/Herramientas-y-maquinaria-de-jardin?isPLP=1",
+
             ]
         }
         ,
@@ -394,14 +340,7 @@ if   __name__ == '__main__':
             "category_name":"Deportes",
             "discount":45,
             "links":[       
-                "https://www.falabella.com/falabella-cl/category/cat6930168/Ropa-deportiva-mujer?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat6930003/Ropa-deportiva-hombre?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat18260007/Electromovilidad?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat70007/Bicicletas?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat2036/Fitness?isPLP=1",
-                "https://www.falabella.com/falabella-cl/collection/Accesorios-Deportivos?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat7280239/Disciplinas?isPLP=1",
-                "https://www.falabella.com/falabella-cl/category/cat6930448/Camping?isPLP=1",          
+         
             ]
         }
     ]
@@ -413,9 +352,7 @@ if   __name__ == '__main__':
         }
     ]
     test_category = [
-         "https://www.falabella.com/falabella-cl/category/cat13720010/Camas?isPLP=1",
-        #   "https://www.falabella.com/falabella-cl/category/cat10546441/Combos-de-Dormitorio?isPLP=1"
-        # "https://www.falabella.com/falabella-cl/category/CATG10503/Terrazas?isPLP=1"
+
       
     ]
     print(type(categories[0]))
