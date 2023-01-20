@@ -9,65 +9,10 @@ def every_n(lst, n):
         yield lst[i:i + n]
 def email_send(subject,content):
         #The mail addresses and password
-        sender_address = 'cheap404price@gmail.com'
-        sender_pass = 'tnawxolbwtzdivqk'
+        sender_address = '<email_sender>@gmail.com'
+        sender_pass = '<pass_email>'
         receivers_address = [
-
-            'fabianastudillo789@gmail.com',
-            'angelacastillolema@hotmail.com',
-            'melissa.barrera.moral@gmail.com',
-            'daniela.coliqueo@gmail.com',
-            'jpeyran@gmail.com',
-            'bruceproxd@gmail.com',
-            'my_rousse@hotmail.com',
-            'barbara.bustos.cm@gmail.com',
-            'camilaev123@gmail.com',
-            'Jochuamora42@gmail.com',
-            'mariapaz_ortega@hotmail.com',
-            'jheresi88@gmail.com',
-            'sepulveda_100@hotmail.com',
-            'retamal170394@gmail.com',
-            'fabiancsm12@gmail.com',
-            'catituhola@gmail.com',
-            'ramverconsultores@gmail.com',
-            'alan_broo@hotmail.com',
-            'lissygarridom@gmail.com',
-            'rosa.salin@gmail.com',
-            'isap2121@gmail.com',
-            'autos24@gmail.com',
-
-
-            'fe.lopezm865@gmail.com',
-            'sebian1920@hotmail.com',
-            'ptroncoso@camanchaca.cl',
-            'nsalazar041@gmail.com',
-            'nicolevegaarancibia@gmail.com',
-            'nicozagal2@gmail.com',
-            'carlos_hinostroza@hotmail.cl',
-            'Issa.castillo.a@gmail.com',
-            'zarzuri50@gmail.com',
-            'felipeantonios637@gmail.com',
-            'mandgoba@hotmail.com',
-            'nicolas.gota454@gmail.com',
-            'vszurit@gmail.com',
-            'gotita18@gmail.com',
-            'manue.co.es@gmail.com',
-            'jaja_viera@hotmail.com',
-            'm.esquivel.tapia@gmail.com',
-            'nicolas.o.mendez@gmail.com',
-            'michelpalomino90@gmail.com',
-            'nikor658@gmail.com',
-            'krolak76@gmail.com',
-            'jesus.enrique99520@gmail.com',
-            'reneemilio2002@gmail.com',
-            'enlaces.lir@gmail.com',
-            'basthi.log@gmail.com',
-            'hbritocm@gmail.com',
-            'wually10@gmail.com',
-            'ivandariodiazramos@gmail.com',
-            'r.diiaz@gmail.com',
-            'aldom.cl@gmail.com',
-            'bastididierr@gmail.com',
+          '<emaills>'
             ]
         #Setup the MIME
         
